@@ -4,6 +4,7 @@ const responses = {
   [/skills]      - List technical skills, tools & concepts
   [/experience]  - Show work experience & internships
   [/projects]    - Detail completed AI projects
+  [/updates]     - Show recent updates to this portfolio
   [/contact]     - Display contact channels
   [/about]       - Provide education and objective summary
   [/joke]        - Tell an agent-themed developer joke
@@ -22,9 +23,12 @@ const responses = {
 
   skills: `[SKILL CLOUD SETTINGS]
   ------------------------------------
-  * TECHNICAL SKILLS: Python, Machine Learning, Deep Learning, Generative AI, SQL, Agentic AI
-  * TOOLS & TECH:     Prompt Engineering, LLM Applications, AI Agents, RAG, LangChain, LangGraph (Multi-Agent setups), NLP, Git
-  * AI CONCEPTS:     API Integration, Ollama, HuggingFace, OpenAI APIs, Vector Database Search`,
+  * TECHNICAL SKILLS:       Python, DSA, OOPs, Machine Learning, NLP, Generative AI, Agentic AI
+  * FRAMEWORKS & TOOLS:     LangChain, PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Streamlit, RESTAPI, Git, GitHub
+  * MODELS & PLATFORMS:     OpenAI, Llama 3/3.1, Gemini, Hugging Face, Ollama
+  * DATABASES & VECTOR:     MySQL, ChromaDB, FAISS, Vector Databases
+  * METHODOLOGIES:          Prompt Engineering, RAG, AI Agents, LLM
+  * CLOUD & DEPLOYMENT:     Docker, REST APIs, Model Deployment, Streamlit Cloud`,
 
   experience: `[EXPERIENCE LOGS]
   ------------------------------------
@@ -53,7 +57,18 @@ const responses = {
   
   * COLD EMAIL GENERATOR:
     - Scrapes jobs, semantic-matches resume, generates customized pitch emails.
-    - Stack: Python, LangChain, Groq, ChromaDB, Streamlit.`,
+    - Stack: Python, LangChain, Groq, ChromaDB, Streamlit.
+
+  * AGENTIC AI JOB APPLICATION BOT:
+    - Automates ATS resume generation and job applications.
+    - Stack: Python, Playwright, LangGraph, Llama 3.1, ATS Automation.`,
+
+  updates: `[RECENT PORTFOLIO UPDATES]
+  ------------------------------------
+  * SYSTEM LOG: Skills Database expanded to 6 comprehensive categories matching core resume capabilities.
+  * SYSTEM LOG: Deployed new native Resume viewing and download section.
+  * SYSTEM LOG: Added 'Agentic AI Job Application Bot' to the Projects catalog.
+  * STATUS: All systems optimal and matching current candidate specifications.`,
 
   contact: `[COMMUNICATION FREQUENCIES]
   ------------------------------------
@@ -146,6 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
       responseText = responses.experience;
     } else if (input === '/projects' || input === 'projects' || input === 'work') {
       responseText = responses.projects;
+    } else if (input === '/updates' || input === 'updates' || input === 'recent') {
+      responseText = responses.updates;
     } else if (input === '/contact' || input === 'contact' || input === 'email') {
       responseText = responses.contact;
     } else if (input === '/about' || input === 'about' || input === 'dhruv') {
@@ -160,6 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
         responseText = responses.experience;
       } else if (input.includes('project') || input.includes('code') || input.includes('system')) {
         responseText = responses.projects;
+      } else if (input.includes('update') || input.includes('recent') || input.includes('new') || input.includes('change')) {
+        responseText = responses.updates;
       } else if (input.includes('contact') || input.includes('email') || input.includes('phone') || input.includes('call')) {
         responseText = responses.contact;
       } else if (input.includes('who') || input.includes('about') || input.includes('education') || input.includes('school') || input.includes('college')) {
